@@ -1,0 +1,44 @@
+import express from "express";
+import cors from "cors";
+import nodemailer from "nodemailer";
+import dotenv from "dotenv";
+
+dotenv.config();
+
+const app = express();
+app.use(cors());
+app.use(express.json());
+
+app.post("/contact", async (req, res) => {
+  const { name, email, phno, message } = req.body;
+
+  try {
+    const transport = nodemailer.createTransport({
+      service: "gmail",
+      auth: {
+        user: process.env.USER_EMAIL,     
+        pass: process.env.USER_PASSWORD,
+      },
+    });
+
+    const mailOptions = {
+      from: email,
+      to: process.env.USER_EMAIL,
+      subject: `New contact from ${name}`,
+      text: `
+        Name: ${name}
+        Email: ${email}
+        Phone: ${phno}
+        Message: ${message}
+      `,
+    };
+
+    await transport.sendMail(mailOptions); 
+    res.json({ success: true, message: "Message was successfully sent!" });
+  } catch (error) {
+    console.error("Error sending email:", error);
+    res.status(500).json({ success: false, message: "Message not sent." });
+  }
+});
+
+app.listen(5002, () => console.log("✅ Server is running on port 5002"));
