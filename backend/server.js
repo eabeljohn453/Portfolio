@@ -1,4 +1,3 @@
-// @ts-check
 import express from "express";
 import cors from "cors";
 import nodemailer from "nodemailer";
@@ -8,13 +7,12 @@ dotenv.config();
 
 const app = express();
 
-// ✅ Allow your Amplify frontend URL
-app.use(
-  cors({
-    origin: "https://main.d3aj9brlsf06al.amplifyapp.com", // your Amplify domain
-    methods: ["GET", "POST"],
-  })
-);
+// ✅ Allow only your frontend domain
+app.use(cors({
+  origin: "https://main.d3aj9brlsf06al.amplifyapp.com",
+  methods: ["POST", "GET"],
+  credentials: true,
+}));
 
 app.use(express.json());
 
