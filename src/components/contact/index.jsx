@@ -34,7 +34,7 @@ const Contact = () => {
     showToast("📤 Sending...", "yellow");
 
     try {
-      const res = await fetch("http://52.62.35.240:5002/contact", {
+      const res = await fetch("http://52.62.35.240/contact", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ name, phno, email, message }),
