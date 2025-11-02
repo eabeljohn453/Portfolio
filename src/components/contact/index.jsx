@@ -34,7 +34,7 @@ const Contact = () => {
     showToast("📤 Sending...", "yellow");
 
     try {
-      const res = await fetch("https://portfolio-xy8v.onrender.com/contact", {
+      const res = await fetch("https://portfolio-3-k3jz.onrender.com/contact", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ name, phno, email, message }),
