@@ -9,7 +9,7 @@ const app = express();
 
 // ✅ Allow only your frontend domain
 app.use(cors({
-  origin: "http://main.d3aj9brlsf06al.amplifyapp.com",
+  origin: "https://main.d3aj9brlsf06al.amplifyapp.com",
   methods: ["POST", "GET"],
   credentials: true,
 }));
