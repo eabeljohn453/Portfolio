@@ -16,7 +16,7 @@ app.use(cors({
 
 app.use(express.json());
 app.get("/contact", (req, res) => {
-  res.send("✅ Backend is running finedfsdfsdfsdf!");
+  res.send("✅ Backend is running finedfsdfsdfsdsdfffffffffffffffffffffffffffffffffffffffffffffffffff!");
 });
 app.post("/contact", async (req, res) => {
   const { name, email, phno, message } = req.body;
