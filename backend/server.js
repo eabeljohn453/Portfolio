@@ -6,7 +6,15 @@ import dotenv from "dotenv";
 dotenv.config();
 
 const app = express();
-app.use(cors());
+
+// ✅ Allow your Amplify frontend URL
+app.use(
+  cors({
+    origin: "https://main.d3aj9brlsf06al.amplifyapp.com", // your Amplify domain
+    methods: ["GET", "POST"],
+  })
+);
+
 app.use(express.json());
 
 app.post("/contact", async (req, res) => {
@@ -16,7 +24,7 @@ app.post("/contact", async (req, res) => {
     const transport = nodemailer.createTransport({
       service: "gmail",
       auth: {
-        user: process.env.USER_EMAIL,     
+        user: process.env.USER_EMAIL,
         pass: process.env.USER_PASSWORD,
       },
     });
@@ -33,7 +41,7 @@ app.post("/contact", async (req, res) => {
       `,
     };
 
-    await transport.sendMail(mailOptions); 
+    await transport.sendMail(mailOptions);
     res.json({ success: true, message: "Message was successfully sent!" });
   } catch (error) {
     console.error("Error sending email:", error);
@@ -41,4 +49,4 @@ app.post("/contact", async (req, res) => {
   }
 });
 
-app.listen(5002,"0.0.0.0", () => console.log("✅ Server is running on port 5002"));
+app.listen(5002, "0.0.0.0", () => console.log("✅ Server is running on port 5002"));
