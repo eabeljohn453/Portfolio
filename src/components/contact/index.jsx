@@ -11,47 +11,55 @@ const Contact = () => {
   const [status, setStatus] = useState("");
   const [showStatus, setShowStatus] = useState(false);
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
+const handleSubmit = async (e) => {
+  e.preventDefault();
 
-    // 🧩 Validation
-    if (!name || !email || !phno || !message) {
-      showToast("⚠️ Please fill in all fields!", "yellow");
-      return;
-    }
+  if (!name || !email || !phno || !message) {
+    showToast("⚠️ Please fill in all fields!", "yellow");
+    return;
+  }
 
-    if (!/\S+@\S+\.\S+/.test(email)) {
-      showToast("⚠️ Please enter a valid email!", "red");
-      return;
-    }
+  if (!/\S+@\S+\.\S+/.test(email)) {
+    showToast("⚠️ Please enter a valid email!", "red");
+    return;
+  }
 
-    if (phno.length < 10) {
-      showToast("⚠️ Please enter a valid phone number!", "red");
-      return;
-    }
+  if (phno.length < 10) {
+    showToast("⚠️ Please enter a valid phone number!", "red");
+    return;
+  }
 
-    // ✅ Proceed if all fields valid
-    showToast("📤 Sending...", "yellow");
+  showToast("📤 Sending...", "yellow");
 
-    try {
-      const res = await fetch("https://portfolio-3-k3jz.onrender.com/contact", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ name, phno, email, message }),
-      });
+  try {
+    const res = await fetch("/api/contact", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        name,
+        email,
+        phno,
+        message,
+      }),
+    });
 
-      const data = await res.json();
+    const data = await res.json();
+
+    if (res.ok) {
       showToast("✅ Message successfully sent!", "green");
-
       setName("");
       setPn("");
       setEmail("");
       setMessage("");
-    } catch (error) {
-      console.error(error);
-      showToast("❌ Failed to send message. Try again later.", "red");
+    } else {
+      showToast("❌ Failed to send message.", "red");
     }
-  };
+  } catch (error) {
+    console.error(error);
+    showToast("❌ Failed to send message.", "red");
+  }
+};
+
 
   // ✅ Reusable toast function
   const showToast = (msg, color) => {
