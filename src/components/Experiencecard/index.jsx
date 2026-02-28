@@ -1,6 +1,14 @@
+"use client";
+
+import { motion } from "framer-motion";
+
 export default function ExperienceCard() {
   return (
-    <div
+    <motion.div
+      initial={{ opacity: 0, x: -120 }}
+      whileInView={{ opacity: 1, x: 0 }}   // ✅ replays on view
+      viewport={{ once: false, amount: 0.3 }} // ✅ EVERY time
+      transition={{ duration: 0.8, ease: "easeOut" }}
       className="
         w-full 
         max-w-[1390px] 
@@ -13,47 +21,67 @@ export default function ExperienceCard() {
         text-white
       "
     >
-      {/* Header */}
-      <div className="flex items-center gap-3 md:gap-4 mb-4">
+      {/* HEADER */}
+      <motion.div
+        initial={{ opacity: 0, x: -60 }}
+        whileInView={{ opacity: 1, x: 0 }}
+        viewport={{ once: false }}
+        transition={{ delay: 0.2 }}
+        className="flex items-center gap-3 md:gap-4 mb-4"
+      >
         <div className="text-3xl md:text-4xl">💼</div>
         <h2 className="text-2xl md:text-3xl font-bold">
           FutureIK Technologies
         </h2>
-      </div>
+      </motion.div>
 
-      {/* Role */}
-      <p className="text-[15px] md:text-lg text-violet-200 mb-1 font-semibold">
+      {/* ROLE */}
+      <motion.p
+        initial={{ opacity: 0, x: 40 }}
+        whileInView={{ opacity: 1, x: 0 }}
+        viewport={{ once: false }}
+        transition={{ delay: 0.3 }}
+        className="text-[15px] md:text-lg text-violet-200 mb-1 font-semibold"
+      >
         Software Development Engineer
-      </p>
+      </motion.p>
 
-      {/* Location + Date */}
-      <p className="text-[13px] md:text-sm text-gray-300 mb-4">
+      {/* LOCATION */}
+      <motion.p
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        viewport={{ once: false }}
+        transition={{ delay: 0.4 }}
+        className="text-[13px] md:text-sm text-gray-300 mb-4"
+      >
         Kochi, Kerala, India • Apr 2025 – Present
-      </p>
+      </motion.p>
 
-      {/* Bullet Points */}
-      <ul className="list-disc ml-5 space-y-2 md:text-[17px] text-[14px] leading-relaxed text-gray-100">
+      {/* BULLETS */}
+      <motion.ul
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: false }}
+        transition={{ delay: 0.5 }}
+        className="list-disc ml-5 space-y-2 md:text-[17px] text-[14px] leading-relaxed text-gray-100"
+      >
         <li>
           Developed and maintained responsive web applications using Next.js,
           React, TailwindCSS, JavaScript, Node.js, and MongoDB.
         </li>
         <li>
-          Implemented socket authentication, real-time socket connections with
-          end devices, and optimized data communication.
+          Implemented socket authentication and real-time device communication.
         </li>
         <li>
-          Integrated internationalization (i18n) to support multiple languages
-          across the web application.
+          Integrated internationalization (i18n) across the application.
         </li>
         <li>
-          Performed code refactoring to improve maintainability, performance,
-          and scalability.
+          Refactored code to improve performance and scalability.
         </li>
         <li>
-          Utilized Postman for API testing and collaborated via GitHub for
-          version control and code reviews.
+          Used Postman and GitHub for testing, version control, and reviews.
         </li>
-      </ul>
-    </div>
+      </motion.ul>
+    </motion.div>
   );
 }
