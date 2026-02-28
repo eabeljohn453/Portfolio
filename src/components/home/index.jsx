@@ -6,8 +6,7 @@ import LogoMarquee from "../marquee";
 import Header from "../header";
 import ExperiencePage from "../experience";
 import Align from "../projects/align";
-import Project from "../projects";
-import Project2 from "../projects/project2";
+import Project from "../projects"; 
 import ExperienceCard from "../Experiencecard";
 import LogoMarquee2 from "../marquee2";
 
@@ -46,8 +45,7 @@ export default function Home() {
           Projects
         </h1>
 
-        <Project />
-        <Project2 />
+        <Project /> 
       </div>
       <div className="flex flex-col items-center justify-center min-h-screen bg-black px-2">
         <h1 className="md:text-[50px] text-[35px] font-extrabold bg-linear-to-r from-[#8E2DE2] to-[#4A00E0] text-transparent bg-clip-text md:mt-20 mt-8 mb-8  md:mb-12">

@@ -2,8 +2,7 @@
 
 import Project from "..";
 import Footer from "../../footer";
-import Header from "../../header";
-import Project2 from "../project2";
+import Header from "../../header"; 
 export default function Align(){
     return(
         <div >
@@ -14,7 +13,7 @@ export default function Align(){
   Projects
 </h1>
         <Project/>
-        <Project2/>
+        
         </div>
         <div className="border-t border-gray-600 mt-14 mb-3"></div>
               <Footer/></div>

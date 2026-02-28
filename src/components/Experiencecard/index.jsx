@@ -66,20 +66,27 @@ export default function ExperienceCard() {
         className="list-disc ml-5 space-y-2 md:text-[17px] text-[14px] leading-relaxed text-gray-100"
       >
         <li>
-          Developed and maintained responsive web applications using Next.js,
-          React, TailwindCSS, JavaScript, Node.js, and MongoDB.
+         Develop and maintain responsive web applications using Next.js, TailwindCSS,
+Javascript, NodeJs, Mongodb.
         </li>
         <li>
-          Implemented socket authentication and real-time device communication.
+          •Integrated internationalization (i18n) to support multiple languages across the web
+application.
         </li>
         <li>
-          Integrated internationalization (i18n) across the application.
+          Performed code refactoring to improve maintainability, performance, and scalability
         </li>
         <li>
-          Refactored code to improve performance and scalability.
+          •Independently designed and implemented the “Virtual Proof” , "proof of play" feature,
+handling end-to-end development including logic, API integration, and React-based
+feature implementation.
         </li>
         <li>
-          Used Postman and GitHub for testing, version control, and reviews.
+         Implemented socket authentication
+        </li>
+           <li>
+        Utilized Postman for API testing and collaborated through GitHub for version control and
+code reviews.
         </li>
       </motion.ul>
     </motion.div>
