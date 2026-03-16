@@ -34,7 +34,7 @@ const techLogos = [
 export default function Home() {
   return (
 
-    <div className="bg-black    scrollbar-hide  " > <Header />
+   <div className="bg-black scrollbar-hide overflow-x-hidden w-full max-w-[100vw]"><Header />
       <div className="border-t border-gray-600 mt-2 mb-3"></div>
       <Body />
       
