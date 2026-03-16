@@ -37,6 +37,7 @@ export default function Home() {
     <div className="bg-black    scrollbar-hide  " > <Header />
       <div className="border-t border-gray-600 mt-2 mb-3"></div>
       <Body />
+      
       <div className="  w-full md:w-full md:mt-28 mt-20">
         <LogoMarquee links={techLogos} speed={4} /></div>
       <div className="mt-4"><LogoMarquee links={techLogos} speed={4} reverse /></div>

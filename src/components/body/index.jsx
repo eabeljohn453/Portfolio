@@ -3,19 +3,71 @@
 import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
+import { useEffect, useRef, useState } from "react";
+import CountUp from "react-countup";
+
 import {
   Code2,
   Server,
   Database,
   Cloud,
   GitBranch,
+  Eye
 } from "lucide-react";
 
 export default function Body() {
-  return (
-    <div className="flex flex-col items-center w-full md:h-[800px] bg-black text-white ">
 
-      {/* ===== HELLO TEXT ===== */}
+  const [visits,setVisits] = useState(500);
+  const fetched = useRef(false);
+
+  useEffect(()=>{
+
+    if(fetched.current) return;
+    fetched.current = true;
+
+    fetch("/api/visits")
+      .then(res=>res.json())
+      .then(data=>setVisits(data.visits));
+
+  },[])
+
+
+  return (
+    <div className="flex flex-col items-center w-full md:h-[800px] bg-black text-white">
+ 
+      <motion.div
+  initial={{ opacity: 0, y: -20 }}
+  animate={{ opacity: 1, y: 0 }}
+  transition={{ duration: 0.6 }}
+  className="mt-12"
+> 
+  <div
+    className="relative p-[2px] rounded-full
+    bg-[linear-gradient(90deg,#a855f7,#ec4899,#3b82f6,#a855f7)]
+    bg-[length:200%_100%]
+    animate-[borderMove_4s_linear_infinite]"
+  >
+
+    {/* inner pill */}
+    <div className="flex items-center gap-2 px-5 py-2 rounded-full bg-[#111]">
+
+      <Eye size={16} className="text-gray-300" />
+
+      <span className="text-gray-200 text-sm">
+        Visitors
+      </span>
+
+      <span className="text-white font-semibold">
+        <CountUp end={visits} duration={2} />
+      </span>
+
+    </div>
+
+  </div>
+</motion.div>
+
+
+      {/* HELLO TEXT */}
       <motion.div
         initial={{ opacity: 0, y: -40 }}
         animate={{ opacity: 1, y: 0 }}
@@ -38,7 +90,8 @@ export default function Body() {
         </h1>
       </motion.div>
 
-      {/* ===== PROFILE IMAGE ===== */}
+
+      {/* PROFILE IMAGE */}
       <motion.div
         initial={{ scale: 0.6, opacity: 0 }}
         animate={{ scale: 1, opacity: 1 }}
@@ -56,7 +109,8 @@ export default function Body() {
         </div>
       </motion.div>
 
-      {/* ===== MAIN HEADING ===== */}
+
+      {/* MAIN HEADING */}
       <motion.h1
         initial={{ opacity: 0, y: 60 }}
         animate={{ opacity: 1, y: 0 }}
@@ -78,7 +132,8 @@ export default function Body() {
         </span>
       </motion.h1>
 
-      {/* ===== DESCRIPTION ===== */}
+
+      {/* DESCRIPTION */}
       <motion.p
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
@@ -88,6 +143,7 @@ export default function Body() {
         I’m a passionate full-stack developer who loves building sleek, scalable,
         and user-focused digital experiences.
       </motion.p>
+
 
       <motion.p
         initial={{ opacity: 0 }}
@@ -99,6 +155,7 @@ export default function Body() {
         frontends to designing powerful backend systems.
       </motion.p>
 
+
       <motion.p
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
@@ -109,7 +166,8 @@ export default function Body() {
         that make a real impact.
       </motion.p>
 
-      {/* ===== BUTTONS ===== */}
+
+      {/* BUTTONS */}
       <motion.div
         initial={{ opacity: 0, y: 40 }}
         animate={{ opacity: 1, y: 0 }}
@@ -131,7 +189,8 @@ export default function Body() {
         </Link>
       </motion.div>
 
-      {/* ===== TECH STACK ===== */}
+
+      {/* TECH STACK */}
       <motion.h1
         initial={{ opacity: 0, y: 40 }}
         animate={{ opacity: 1, y: 0 }}
@@ -140,6 +199,7 @@ export default function Body() {
       >
         My Tech Stack
       </motion.h1>
+
 
       <motion.p
         initial={{ opacity: 0 }}
@@ -150,7 +210,8 @@ export default function Body() {
         Tools and Technologies I Use
       </motion.p>
 
-      {/* ===== TECH ICONS ===== */}
+
+      {/* TECH ICONS */}
       <div className="flex gap-8 mt-10 flex-wrap justify-center">
         {[Code2, Server, Database, Cloud, GitBranch].map((Icon, i) => (
           <motion.div

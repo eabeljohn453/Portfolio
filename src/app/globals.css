@@ -32,3 +32,14 @@ body {
 .before\:animate-gradient::before {
   animation: gradient 3s linear infinite;
 }
+@keyframes borderMove {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 200% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
