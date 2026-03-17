@@ -171,7 +171,7 @@ export default function Body() {
         </Link>
 
         <Link
-          href="/assets/Eabel cv.pdf"
+          href="/assets/eabel@cv-1-3.pdf"
           className="border border-white w-36 h-12 flex items-center justify-center rounded-3xl font-semibold transition-all duration-300 hover:bg-gradient-to-r hover:from-purple-800 hover:border-black"
         >
           Download CV

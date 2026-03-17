@@ -54,7 +54,7 @@ export default function ExperienceCard() {
         transition={{ delay: 0.4 }}
         className="text-[13px] md:text-sm text-gray-300 mb-4"
       >
-        Kochi, Kerala, India • Apr 2025 – Present
+        Kochi, Kerala, India • March 2025 – Present
       </motion.p>
 
       {/* BULLETS */}
