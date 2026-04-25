@@ -17,17 +17,20 @@ import {
 
 export default function Body() {
 
-  const [visits, setVisits] = useState(500);
-  const fetched = useRef(false);
+  const [visits, setVisits] = useState(null);
+const [mounted, setMounted] = useState(false);
+const fetched = useRef(false);
 
-  useEffect(() => {
-    if (fetched.current) return;
-    fetched.current = true;
+useEffect(() => {
+  setMounted(true);
 
-    fetch("/api/visits")
-      .then(res => res.json())
-      .then(data => setVisits(data.visits));
-  }, []);
+  if (fetched.current) return;
+  fetched.current = true;
+
+  fetch("/api/visits")
+    .then(res => res.json())
+    .then(data => setVisits(data.visits));
+}, []);
 
   return (
     <div className="flex flex-col items-center w-full bg-black text-white overflow-x-hidden">
@@ -44,9 +47,11 @@ export default function Body() {
           <div className="flex items-center gap-2 px-5 py-2 rounded-full bg-[#111]">
             <Eye size={16} className="text-gray-300" />
             <span className="text-gray-200 text-sm">Visitors</span>
-            <span className="text-white font-semibold">
-              <CountUp end={visits} duration={2} />
-            </span>
+            <span className="text-white font-semibold min-w-[50px] inline-block text-center">
+  {mounted && visits !== null && (
+    <CountUp end={visits} duration={2} />
+  )}
+</span>
           </div>
 
         </div>
@@ -86,6 +91,7 @@ export default function Body() {
             width={300}
             height={300}
             className="rounded-full"
+            priority
           />
         </div>
 

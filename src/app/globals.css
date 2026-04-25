@@ -48,3 +48,18 @@ body {
   0% { background-position: 0% 50%; }
   100% { background-position: 200% 50%; }
 }
+
+/* Hide scrollbar (Chrome, Edge, Safari) */
+::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar (Firefox) */
+html {
+  scrollbar-width: none;
+}
+
+/* Prevent horizontal scroll */
+body {
+  overflow-x: hidden;
+}
