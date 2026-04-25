@@ -2,6 +2,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
+import AIIcon from "@/components/AIIcon";   // ✅ FIXED IMPORT
 
 export default function Footer() {
   const [open, setOpen] = useState(false);
@@ -11,13 +12,14 @@ export default function Footer() {
 
       {/* 🔹 Mobile Hamburger */}
       <div className="md:hidden flex justify-between items-center">
-        <h1 className="bg-linear-to-r from-purple-600 to-blue-500 bg-clip-text text-transparent  text-[22px] font-bold">#developer</h1>
+        <h1 className="bg-linear-to-r from-purple-600 to-blue-500 bg-clip-text text-transparent text-[22px] font-bold">
+          #developer
+        </h1>
 
-       <button
-  onClick={() => setOpen(!open)}
-  className="bg-linear-to-r from-purple-600 to-blue-500 bg-clip-text text-transparent text-[28px] font-bold"
->
-
+        <button
+          onClick={() => setOpen(!open)}
+          className="bg-linear-to-r from-purple-600 to-blue-500 bg-clip-text text-transparent text-[28px] font-bold"
+        >
           {open ? "✖" : "☰"}
         </button>
       </div>
@@ -25,12 +27,15 @@ export default function Footer() {
       {/* 🔹 Mobile Dropdown */}
       {open && (
         <div className="flex flex-col gap-6 mt-4 md:hidden text-white font-semibold">
-          <Link href="/" className="bg-linear-to-r from-purple-600 to-blue-500 bg-clip-text text-transparent ">Home</Link>
+         <Link href="/" className="bg-linear-to-r from-purple-600 to-blue-500 bg-clip-text text-transparent ">Home</Link>
           <Link href="/project " className="bg-linear-to-r from-purple-600 to-blue-500 bg-clip-text text-transparent ">Projects</Link>
           <Link href="/experience" className="bg-linear-to-r from-purple-600 to-blue-500 bg-clip-text text-transparent ">Experience</Link>
           <Link href="/contact" className="bg-linear-to-r from-purple-600 to-blue-500 bg-clip-text text-transparent ">Contact</Link>
 
+
           <div className="flex gap-4 items-center">
+            <AIIcon />
+
             <Link href="https://github.com/eabeljohn453">
               <Image src="/assets/git.svg" width={30} height={30} alt="github" />
             </Link>
@@ -77,11 +82,14 @@ export default function Footer() {
               after:transition-all after:duration-500 hover:after:w-full text-white">
               Contact
             </h1>
-          </Link>
+          </Link> 
         </div>
 
-        {/* Right: Social Icons */}
+        {/* 🔥 RIGHT SIDE (IMPORTANT FIX) */}
         <div className="flex gap-4 items-center">
+
+          <AIIcon />   {/* ✅ THIS WAS MISSING */}
+
           <Link href="https://github.com/eabeljohn453">
             <Image src="/assets/git.svg" width={30} height={30} alt="github" />
           </Link>
@@ -89,6 +97,7 @@ export default function Footer() {
           <Link href="https://in.linkedin.com/in/eabel-john-656997270">
             <Image src="/assets/linkedin.svg" width={30} height={30} alt="linkedin" />
           </Link>
+
         </div>
       </div>
     </div>
