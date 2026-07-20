@@ -9,6 +9,7 @@ import Align from "../projects/align";
 import Project from "../projects"; 
 import ExperienceCard from "../Experiencecard";
 import LogoMarquee2 from "../marquee2";
+import CertificateSection from "../certificate";
 
 const techLogos = [
   "assets/photo/tech/css.svg",
@@ -52,7 +53,8 @@ export default function Home() {
         <h1 className="md:text-[50px] text-[35px] font-extrabold bg-linear-to-r from-[#8E2DE2] to-[#4A00E0] text-transparent bg-clip-text md:mt-20 mt-8 mb-8  md:mb-12">
           Experience
         </h1>
-        <ExperienceCard /></div>
+        <ExperienceCard />
+        <CertificateSection/></div>
       <div className="border-t border-gray-600 mt-14 mb-3"></div>
       <Footer />
     </div>)
