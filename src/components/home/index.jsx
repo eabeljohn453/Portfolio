@@ -10,6 +10,7 @@ import Project from "../projects";
 import ExperienceCard from "../Experiencecard";
 import LogoMarquee2 from "../marquee2";
 import CertificateSection from "../certificate";
+import Certificates from "../certificate/certificate";
 
 const techLogos = [
   "assets/photo/tech/css.svg",
@@ -54,7 +55,7 @@ export default function Home() {
           Experience
         </h1>
         <ExperienceCard />
-        <CertificateSection/></div>
+        <Certificates/></div>
       <div className="border-t border-gray-600 mt-14 mb-3"></div>
       <Footer />
     </div>)
